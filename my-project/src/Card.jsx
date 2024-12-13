@@ -1,23 +1,28 @@
 import React from "react";
 import cover from "./images/cover.png";
 
-function Card({ card, handleChoice }) {
+function Card({ card, handleChoice, flipped, disabled }) {
   const handleClick = () => {
-    handleChoice(card);
+    if (!disabled) {
+      handleChoice(card);
+    }
   };
+
   return (
-    <div className="  flex flex-col justify-center items-center">
-      <img
-        className="h-40 w-40 rounded-md border "
-        src={card.src}
-        alt="images for Game"
-      />
-      <img
-        className="h-40 w-40 rounded-md border"
-        src={cover}
-        onClick={handleClick}
-        alt="image that covers the card"
-      />
+    <div className="card    rounded-md border-orange-700">
+      <div className={flipped ? "flipped" : ""}>
+        <img
+          className=" card front h-32 w-32  rounded-md border "
+          src={card.src}
+          alt="card front"
+        />
+        <img
+          className="back h-32 w-32 rounded-md border "
+          src={cover}
+          onClick={handleClick}
+          alt="card back"
+        />
+      </div>
     </div>
   );
 }
