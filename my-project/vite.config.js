@@ -3,7 +3,7 @@ import react from "@vitejs/plugin-react";
 import { VitePWA } from "vite-plugin-pwa";
 
 const manifestForPlugin = {
-  registerType: "prompt", // Allows manual update handling
+  registerType: "prompt",
   includeAssets: ["favicon.ico", "apple-touch-icon.png", "masked-icon.png"],
   manifest: {
     name: "Memory Game",
@@ -14,6 +14,7 @@ const manifestForPlugin = {
         src: "/pwa-192x192.png",
         sizes: "192x192",
         type: "image/png",
+        purpose: "any",
       },
       {
         src: "/favicon.ico",
