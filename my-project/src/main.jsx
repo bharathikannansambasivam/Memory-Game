@@ -8,7 +8,6 @@ const updateServiceWorker = (registration) => {
     registration.waiting.postMessage({ type: "SKIP_WAITING" });
     registration.waiting.addEventListener("statechange", (event) => {
       if (event.target.state === "activated") {
-        // Reload the page when the new Service Worker activates
         window.location.reload();
       }
     });
